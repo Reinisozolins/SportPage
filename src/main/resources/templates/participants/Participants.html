@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<a href=C:\Users\Reinis\Desktop\velolapa\index.html>index</a>
+<h1>Welcome to my best race event homepage</h1>
+<p>All participants who are registered for the next race</p>
+
+    <table>
+        <tr>
+            <th></th>
+            <th class="desc">Description</th>
+            <th>Done</th>
+            <th>Created</th>
+            <th> Delete</th>
+            <th>Update</th>
+        </tr>
+        <th:block th:each="issue : ${issues}">
+            <tr>
+                <td ><a th:href="@{${issue.url}}" th:text="${issue.url}"></a></td>
+                <td th:text="${issue.description}">...</td>
+                <td><span class="status" th:classappend="${issue.done} ? done : pending"></span></td>
+                <td th:text="${issue.created}">...</td>
+                <td ><a th:href="@{'/issuereport/delete/'+${issue.id}}" > delete</a></td>
+                <td ><a th:href="@{'/issuereport/update/'+${issue.id}}">Update </a></td>
+            </tr>
+        </th:block>
+    </table>
+
+
+
+
+
+
+
+
+</body>
+</html>
