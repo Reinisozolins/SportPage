@@ -30,8 +30,9 @@ public class RegistrationController {
 //    }
 
     @GetMapping("/registration")
-    public String login() {
-        return "test";
+    public String login(Model model) {
+        model.addAttribute("registration", new Registration());
+        return "registration/Registration";
     }
 
     @GetMapping("/index")

@@ -5,7 +5,7 @@
 <title>Page Title</title>
 </head>
 <body>
-<a href=C:\Users\Reinis\Desktop\velolapa\index.html>index</a>
+<p>Back to Home page <a href="/index">here</a></p>
 <h1>Welcome to my best race event homepage</h1>
 <p>Registration for 1st stage.</p>
 
@@ -13,22 +13,26 @@
     <form method="post" action="#" th:object="${registration}" th:action="@{/registration}">
 
         <input type="text" placeholder="Name" id="name" th:field="*{name}"/> <br>
+        <input type="text" placeholder="Surname" id="surname" th:field="*{surname}"/> <br>
+        <input type="text" placeholder="Gender" id="gender" th:field="*{gender}"/> <br>
+        <input type="text" placeholder="Birth date" id="birth" th:field="*{birth}"/> <br>
+        <input type="text" placeholder="Country" id="country" th:field="*{country}"/> <br>
+        <input type="text" placeholder="E-mail" id="email" th:field="*{email}"/> <br>
+        <input type="text" placeholder="Phone number" id="phone" th:field="*{phone}"/> <br>
+        <input type="text" placeholder="Team name" id="team" th:field="*{team}"/> <br>
+        <input type="text" placeholder="City" id="city" th:field="*{city}"/> <br>
+        <input type="text" placeholder="Bike brand" id="bike" th:field="*{bike}"/> <br>
 
-        <input type="hidden" id="id" th:field="*{id}"/>
 
-        <input type="text" placeholder="Email" id="email" th:field="*{email}"/>
 
-        <input type="text" placeholder="Url where the issue was found on" id="url" th:field="*{url}" />
-
-        <textarea placeholder="Description of the issue" rows="5" id="description" th:field="*{description}" ></textarea>
     </form>
 
 </div>
 
 
 
+<p>Back to Home page <a href="/index">here</a></p>
 
-<a href=C:\Users\Reinis\Desktop\velolapa\index.html>index</a>
 
 
 

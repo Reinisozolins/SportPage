@@ -3,7 +3,7 @@ package lv.ozo.CourseFinalProjectSportCompetitionWebPage.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name= "registration")
 public class Registration {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
