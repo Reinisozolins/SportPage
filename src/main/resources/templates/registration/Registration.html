@@ -12,16 +12,43 @@
 <div class="container">
     <form method="post" action="#" th:object="${registration}" th:action="@{/registration}">
 
+        First name:<br>
         <input type="text" placeholder="Name" id="name" th:field="*{name}"/> <br>
+        <br>
+        Surname:<br>
         <input type="text" placeholder="Surname" id="surname" th:field="*{surname}"/> <br>
-        <input type="text" placeholder="Gender" id="gender" th:field="*{gender}"/> <br>
-        <input type="text" placeholder="Birth date" id="birth" th:field="*{birth}"/> <br>
-        <input type="text" placeholder="Country" id="country" th:field="*{country}"/> <br>
-        <input type="text" placeholder="E-mail" id="email" th:field="*{email}"/> <br>
-        <input type="text" placeholder="Phone number" id="phone" th:field="*{phone}"/> <br>
-        <input type="text" placeholder="Team name" id="team" th:field="*{team}"/> <br>
-        <input type="text" placeholder="City" id="city" th:field="*{city}"/> <br>
-        <input type="text" placeholder="Bike brand" id="bike" th:field="*{bike}"/> <br>
+        <br>
+        Gender:<br>
+        <input type="radio" name="gender" value="male" checked> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other<br><br>
+
+        Birthday:
+        <input type="date" name="bday"><br><br>
+        <!--<input type="text" placeholder="Birth date" id="birth" th:field="*{birth}"/> <br>-->
+
+        Country:
+        <select name="country">
+            <option value="LV">Latvija</option>
+            <option value="LT">Lietuva</option>
+            <option value="EE">Igaunija</option>
+            <option value="Other">Other</option>
+        </select>
+        <br><br>
+        <!--<input type="text" placeholder="Country" id="country" th:field="*{country}"/> <br>-->
+
+        E-mail:
+        <input type="email" name="email"> <br><br>
+        <!--<input type="text" placeholder="E-mail" id="email" th:field="*{email}"/> <br>-->
+
+        Phone:
+        <input type="text" placeholder="Phone number" id="phone" th:field="*{phone}"/> <br><br>
+        Team:
+        <input type="text" placeholder="Team name" id="team" th:field="*{team}"/> <br><br>
+        City:
+        <input type="text" placeholder="City" id="city" th:field="*{city}"/> <br><br>
+        Bike brand:
+        <input type="text" placeholder="Bike brand" id="bike" th:field="*{bike}"/> <br><br>
 
         <input type="submit" value="Submit"/>
 

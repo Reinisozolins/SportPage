@@ -22,10 +22,7 @@ public class RegistrationController {
         return "registration/Registration";
     }
 
-    @GetMapping("/index")
-    public String index() {
-        return "index";
-    }
+
 
     @PostMapping(value = "registration")
     public String submitRegistration(@Valid @ModelAttribute("registration") Registration registration, BindingResult result,

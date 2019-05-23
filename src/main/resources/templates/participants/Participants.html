@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <title>Page Title</title>
 </head>
 <body>
-<a href=C:\Users\Reinis\Desktop\velolapa\index.html>index</a>
+<button>
+    <a href="/index">index</a>>
+</button>
 <h1>Welcome to my best race event homepage</h1>
 <p>All participants who are registered for the next race</p>
 
@@ -14,19 +16,20 @@
             <th>  # </th>
             <th>Number</th>
             <th>Name</th>
-            <th> Surname</th>
-            <th>Update</th>
+            <th>Surname</th>
+            <th>Year</th>
+            <th>Team</th>
         </tr>
-        <!--<th:block th:each="issue : ${issues}">-->
-            <!--<tr>-->
-                <!--<td ><a th:href="@{${issue.url}}" th:text="${issue.url}"></a></td>-->
-                <!--<td th:text="${issue.description}">...</td>-->
-                <!--<td><span class="status" th:classappend="${issue.done} ? done : pending"></span></td>-->
-                <!--<td th:text="${issue.created}">...</td>-->
-                <!--<td ><a th:href="@{'/issuereport/delete/'+${issue.id}}" > delete</a></td>-->
-                <!--<td ><a th:href="@{'/issuereport/update/'+${issue.id}}">Update </a></td>-->
-            <!--</tr>-->
-        <!--</th:block>-->
+
+
+        <th:block th:each="registration : ${registration}">
+            <tr>
+                <td ><a th:href="@{${Registration.name}}" th:text="${Registration.name}"></a></td>
+                <td ><a th:href="@{${registration.surname}}" th:text="${registration.surname}"></a></td>
+
+
+            </tr>
+        </th:block>
     </table>
 
 
