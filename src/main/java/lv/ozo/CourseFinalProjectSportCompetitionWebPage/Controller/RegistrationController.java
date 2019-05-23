@@ -16,19 +16,6 @@ public class RegistrationController {
     @Autowired
     private RegistrationService registrationService;
 
-
-//    @GetMapping("/registration")
-//    @ResponseBody
-//    public  String getReport(){
-//        return "registration/Registration.html";
-//    }
-//
-//    @PostMapping("/registration")
-//    @ResponseBody
-//    public String submitReport (){
-//        return "registration/Registration.html";
-//    }
-
     @GetMapping("/registration")
     public String login(Model model) {
         model.addAttribute("registration", new Registration());
