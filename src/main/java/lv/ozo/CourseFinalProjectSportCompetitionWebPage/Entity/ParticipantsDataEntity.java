@@ -3,8 +3,8 @@ package lv.ozo.CourseFinalProjectSportCompetitionWebPage.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "registration")
-public class Registration {
+@Table(name= "participants")
+public class ParticipantsDataEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -19,7 +19,7 @@ public class Registration {
     private String city;
     private String bike;
 
-    public Registration() {
+    public ParticipantsDataEntity() {
 
     }
 

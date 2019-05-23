@@ -1,6 +1,6 @@
 package lv.ozo.CourseFinalProjectSportCompetitionWebPage.Controller;
 
-import lv.ozo.CourseFinalProjectSportCompetitionWebPage.Entity.Registration;
+import lv.ozo.CourseFinalProjectSportCompetitionWebPage.Entity.ParticipantsDataEntity;
 import lv.ozo.CourseFinalProjectSportCompetitionWebPage.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,21 +18,26 @@ public class RegistrationController {
 
     @GetMapping("/registration")
     public String login(Model model) {
-        model.addAttribute("registration", new Registration());
+        model.addAttribute("registration", new ParticipantsDataEntity());
         return "registration/Registration";
     }
 
 
 
-    @PostMapping(value = "registration")
-    public String submitRegistration(@Valid @ModelAttribute("registration") Registration registration, BindingResult result,
+    @PostMapping(value = "/registration")
+    public String submitRegistration(@Valid @ModelAttribute("participantsDataEntity") ParticipantsDataEntity participantsDataEntity, BindingResult result,
                                      Model model, RedirectAttributes ra) {
         if (result.hasErrors()) {
-            return "registration/Registration";
+            return "participants/Participants";
         }
-        this.registrationService.save(registration);
+        this.registrationService.save(participantsDataEntity);
         ra.addAttribute("submitted", true);
         return "redirect:/registration";
 
+    }
+    @GetMapping("/participants")
+    public String getParticipants(Model model) {
+        model.addAttribute("participants", this.registrationService.getAllParticipants());
+        return "participants/Participants";
     }
 }

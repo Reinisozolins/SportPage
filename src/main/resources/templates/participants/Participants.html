@@ -1,43 +1,32 @@
 ﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <title>Page Title</title>
 </head>
 <body>
+<div class="container participant_list">
+    <h1>Welcome to my best race event homepage</h1>
+    <p>All participants who are registered for the next race</p>
+    <br/>
 <button>
     <a href="/index">index</a>>
 </button>
-<h1>Welcome to my best race event homepage</h1>
-<p>All participants who are registered for the next race</p>
-
     <table>
         <tr>
-            <th></th>
-            <th>  # </th>
-            <th>Number</th>
             <th>Name</th>
             <th>Surname</th>
-            <th>Year</th>
-            <th>Team</th>
+            <th>test</th>
         </tr>
 
 
-        <th:block th:each="registration : ${registration}">
+        <th:block th:each="participants : ${participants}">
             <tr>
-                <td ><a th:href="@{${Registration.name}}" th:text="${Registration.name}"></a></td>
-                <td ><a th:href="@{${registration.surname}}" th:text="${registration.surname}"></a></td>
-
-
+                <td th:text="${participants.name}">...</td>
+                <td th:text="${participants.surname}">...</td>
             </tr>
         </th:block>
     </table>
-
-
-
-
-
-
-
-
+</div>
 </body>
 </html>

@@ -1,7 +1,10 @@
 package lv.ozo.CourseFinalProjectSportCompetitionWebPage.service;
 
-import lv.ozo.CourseFinalProjectSportCompetitionWebPage.Entity.Registration;
+import lv.ozo.CourseFinalProjectSportCompetitionWebPage.Entity.ParticipantsDataEntity;
+
+import java.util.List;
 
 public interface RegistrationService {
-    void save(Registration registration);
+    List<ParticipantsDataEntity> getAllParticipants();
+    void save(ParticipantsDataEntity participantsDataEntity);
 }
