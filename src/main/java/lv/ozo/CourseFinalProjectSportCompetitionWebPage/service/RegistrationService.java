@@ -7,4 +7,5 @@ import java.util.List;
 public interface RegistrationService {
     List<ParticipantsDataEntity> getAllParticipants();
     void save(ParticipantsDataEntity participantsDataEntity);
+    void delete(ParticipantsDataEntity participantsDataEntity);
 }

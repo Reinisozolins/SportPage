@@ -12,6 +12,7 @@
 
 <div class="container">
     <form method="post" action="#" th:object="${registration}" th:action="@{/registration}">
+        <input type="hidden" id="id" th:field="*{id}"/>
 
         First name:<br>
         <input type="text" placeholder="Name" id="name" th:field="*{name}"/> <br>

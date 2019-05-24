@@ -16,7 +16,10 @@
         <tr>
             <th>Name</th>
             <th>Surname</th>
-            <th>test</th>
+            <th>Year</th>
+            <th>Team</th>
+            <th>Bike brand</th>
+            <th>Delete</th>
         </tr>
 
 
@@ -24,6 +27,12 @@
             <tr>
                 <td th:text="${participants.name}">...</td>
                 <td th:text="${participants.surname}">...</td>
+                <td th:text="${participants.birth}">...</td>
+                <td th:text="${participants.team}">...</td>
+                <td th:text="${participants.bike}">...</td>
+                <td th:text="${participants.surname}">...</td>
+                <td ><a th:href="@{'/registration/delete/'+${participants.id}}" > delete</a></td>
+
             </tr>
         </th:block>
     </table>

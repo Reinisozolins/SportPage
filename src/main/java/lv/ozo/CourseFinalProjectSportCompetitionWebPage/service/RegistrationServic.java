@@ -18,6 +18,11 @@ public class RegistrationServic implements RegistrationService {
         registrationRepository.save(participantsDataEntity);
 
     }
+    @Override
+    public void delete(ParticipantsDataEntity participantsDataEntity) {
+        registrationRepository.save(participantsDataEntity);
+
+    }
 
     @Override
     public List<ParticipantsDataEntity> getAllParticipants() {

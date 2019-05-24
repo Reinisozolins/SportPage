@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class RegistrationController {
@@ -39,5 +40,10 @@ public class RegistrationController {
     public String getParticipants(Model model) {
         model.addAttribute("participants", this.registrationService.getAllParticipants());
         return "participants/Participants";
+    }
+    @GetMapping("/registration/delete/{id}")
+    public String deleteParticipants (Model model, @PathVariable("id") Optional<ParticipantsDataEntity> participantsDataEntity){
+        participantsDataEntity.ifPresent(participants -> this.registrationService.delete(participants));
+        return  "redirect:/participants";
     }
 }
