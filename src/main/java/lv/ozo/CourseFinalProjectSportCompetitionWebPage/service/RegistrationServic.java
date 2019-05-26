@@ -20,7 +20,7 @@ public class RegistrationServic implements RegistrationService {
     }
     @Override
     public void delete(ParticipantsDataEntity participantsDataEntity) {
-        registrationRepository.save(participantsDataEntity);
+        registrationRepository.delete(participantsDataEntity);
 
     }
 
@@ -30,4 +30,3 @@ public class RegistrationServic implements RegistrationService {
 
     }
 }
-
