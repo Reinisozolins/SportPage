@@ -11,5 +11,5 @@ import java.util.List;
 public interface RegistrationRepository extends JpaRepository<ParticipantsDataEntity, Long> {
     @Query(value = "SELECT i FROM ParticipantsDataEntity i ")
     List<ParticipantsDataEntity> findAll();
-
 }
+

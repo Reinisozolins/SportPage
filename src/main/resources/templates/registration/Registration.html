@@ -1,58 +1,112 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html xmlns:th="http://www.w3.org/1999/xhtml">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-    <title>Page Title</title>
+    <title>Registration page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
+
 <body>
 <p>Back to Home page <a href="/index">here</a></p>
 <h1>Welcome to my best race event homepage</h1>
 <p>Registration for 1st stage.</p>
 
 <div class="container">
+
     <form method="post" action="#" th:object="${registration}" th:action="@{/registration}">
-        <input type="hidden" id="id" th:field="*{id}"/>
+        <fieldset>
+            <legend>General information :</legend>
+            <input type="hidden" id="id" th:field="*{id}"/>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('name')}">
+                        <p style="color:Red;" th:each="err : ${#fields.errors('name')}" th:text="${err}"></p>
+                    </div>
+                    <label for="name">First name:</label>
+                    <input type="text" placeholder="Name" id="name" th:field="*{name}"/>
+                </div>
+                <div class="col-md-4">
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('surname')}">
+                        <p style="color:Red;" th:each="err : ${#fields.errors('surname')}" th:text="${err}"></p>
+                    </div>
+                    <label for="surname">Surname:</label>
+                    <input type="text" placeholder="Surname" id="surname" th:field="*{surname}"/>
+                </div>
 
-        First name:<br>
-        <input type="text" placeholder="Name" id="name" th:field="*{name}"/> <br>
-        <br>
-        Surname:<br>
-        <input type="text" placeholder="Surname" id="surname" th:field="*{surname}"/> <br>
-        <br>
-        Gender:<br>
-        <input type="radio" name="gender" value="male" checked> Male<br>
-        <input type="radio" name="gender" value="female"> Female<br>
+                <div class="col-md-4">
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('email')}">
+                        <p style="color:Red;" th:each="err : ${#fields.errors('email')}" th:text="${err}"></p>
+                    </div>
+                    <label for="email">Email:</label>
+                    <input type="email" placeholder="E-mail" id="email" th:field="*{email}"/> <br>
+                </div>
 
-        Birthday:
-        <input type="date" name="bday"><br><br>
-        <!--<input type="text" placeholder="Birth date" id="birth" th:field="*{birth}"/> <br>-->
+                <div class="col-md-4 mb-3">
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('gender')}">
+                        <p style="color:Red;" th:each="err : ${#fields.errors('gender')}" th:text="${err}"></p>
+                    </div>
+                    <label>Gender:</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="male"> Male<br>
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="female"> Female<br>
+                    </label>
+                </div>
 
-        Country:
-        <select name="country">
-            <option value="LV">Latvija</option>
-            <option value="LT">Lietuva</option>
-            <option value="EE">Igaunija</option>
-            <option value="Other">Other</option>
-        </select>
-        <br><br>
-        <!--<input type="text" placeholder="Country" id="country" th:field="*{country}"/> <br>-->
 
-        E-mail:
-        <input type="email" name="email"> <br><br>
-        <!--<input type="text" placeholder="E-mail" id="email" th:field="*{email}"/> <br>-->
+                <div class="col-md-4">
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('birth')}">
+                        <p style="color:Red;" th:each="err : ${#fields.errors('birth')}" th:text="${err}"></p>
+                    </div>
+                    <label for="birth">Birthday:</label>
+                    <input type="date" name="birth" id="birth" th:field="*{birth}" th:value="${#dates.format(birth, 'yyyy-MM-dd')}">
 
-        Phone:
-        <input type="text" placeholder="Phone number" id="phone" th:field="*{phone}"/> <br><br>
-        Team:
-        <input type="text" placeholder="Team name" id="team" th:field="*{team}"/> <br><br>
-        City:
-        <input type="text" placeholder="City" id="city" th:field="*{city}"/> <br><br>
-        Bike brand:
-        <input type="text" placeholder="Bike brand" id="bike" th:field="*{bike}"/> <br><br>
+                </div>
 
-        <input type="submit" value="Submit"/>
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('phone')}">
+                    <p style="color:Red;" th:each="err : ${#fields.errors('phone')}" th:text="${err}"></p>
+                </div>
+                Phone:
+                <input type="text" placeholder="Phone number" id="phone" th:field="*{phone}"/> <br><br>
 
+                Country:
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('country')}">
+                    <p style="color:Red;" th:each="err : ${#fields.errors('country')}" th:text="${err}"></p>
+                </div>
+                <select name="country">
+                    <option value="LV">Latvija</option>
+                    <option value="LT">Lietuva</option>
+                    <option value="EE">Igaunija</option>
+                    <option value="Other">Other</option>
+                </select>
+                <br><br>
+
+
+
+
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('team')}">
+                    <p style="color:Red;" th:each="err : ${#fields.errors('team')}" th:text="${err}"></p>
+                </div>
+                Team:
+                <input type="text" placeholder="Team name" id="team" th:field="*{team}"/> <br><br>
+
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('city')}">
+                    <p style="color:Red;" th:each="err : ${#fields.errors('city')}" th:text="${err}"></p>
+                </div>
+                City:
+                <input type="text" placeholder="City" id="city" th:field="*{city}"/> <br><br>
+
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('bike')}">
+                    <p th:each="err : ${#fields.errors('bike')}" th:text="${err}"></p>
+                </div>
+                Bike brand:
+                <input type="text" placeholder="Bike brand" id="bike" th:field="*{bike}"/> <br><br>
+
+                <input type="submit" value="Submit"/>
+
+        </fieldset>
     </form>
 </div>
 

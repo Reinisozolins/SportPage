@@ -14,6 +14,7 @@
 </button>
     <table>
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Surname</th>
             <th>Year</th>
@@ -23,11 +24,14 @@
         </tr>
 
 
-        <th:block th:each="participants : ${participants}">
+        <th:block th:each="participants,iterators : ${participants}">
             <tr>
+                <td th:text="@{${iterators.index} + 1}"></td>
                 <td th:text="${participants.name}">...</td>
                 <td th:text="${participants.surname}">...</td>
-                <td th:text="${participants.birth}">...</td>
+                <!--<td th:text="${participants.birth}">...</td>-->
+
+                <td th:text="${#temporals.year(date)}">...</td>
                 <td th:text="${participants.team}">...</td>
                 <td th:text="${participants.bike}">...</td>
                 <td ><a th:href="@{'/registration/delete/'+${participants.id}}" > delete</a></td>

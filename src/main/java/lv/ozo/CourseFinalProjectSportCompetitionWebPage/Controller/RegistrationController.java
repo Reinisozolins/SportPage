@@ -26,10 +26,10 @@ public class RegistrationController {
 
 
     @PostMapping(value = "/registration")
-    public String submitRegistration(@Valid @ModelAttribute("participantsDataEntity") ParticipantsDataEntity participantsDataEntity, BindingResult result,
+    public String submitRegistration(@Valid @ModelAttribute("registration") ParticipantsDataEntity participantsDataEntity, BindingResult result,
                                      Model model, RedirectAttributes ra) {
         if (result.hasErrors()) {
-            return "participants/Participants";
+            return "registration/Registration";
         }
         this.registrationService.save(participantsDataEntity);
         ra.addAttribute("submitted", true);

@@ -1,6 +1,7 @@
 package lv.ozo.CourseFinalProjectSportCompetitionWebPage.Entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name= "participants")
@@ -8,16 +9,27 @@ public class ParticipantsDataEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank(message = "Write your name")
     private String name;
+    @NotBlank(message = "Write your surname")
     private String surname;
+    @NotBlank(message = "Write your gender")
     private String gender;
+    @NotBlank(message = "Add your birth date")
     private String birth;
+    @NotBlank(message = "Add your country")
     private String country;
+    @NotBlank(message = "Add your e-mail")
     private String email;
+    @NotBlank(message = "Add your phone number")
     private String phone;
+
     private String team;
+
     private String city;
+
     private String bike;
+
 
     public ParticipantsDataEntity() {
 
