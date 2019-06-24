@@ -10,7 +10,7 @@
 <p>Back to Home page <a href="/index">here</a></p>
 <h1>Welcome to my best race event homepage</h1>
 <p>Registration for 1st stage.</p>
-
+<br><br>
 <div class="container">
 
     <form method="post" action="#" th:object="${registration}" th:action="@{/registration}">
@@ -64,52 +64,66 @@
 
                 </div>
 
-                <p class="alert alert-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
-                <div class="alert alert-danger" th:if="${#fields.hasErrors('phone')}">
-                    <p style="color:Red;" th:each="err : ${#fields.errors('phone')}" th:text="${err}"></p>
+                <div class="col-md-4">
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('phone')}">
+                        <p style="color:Red;" th:each="err : ${#fields.errors('phone')}" th:text="${err}"></p>
+                    </div>
+                    <label for="phone">Phone:</label>
+                    <input type="text" placeholder="Phone number" id="phone" th:field="*{phone}"/> <br>
                 </div>
-                Phone:
-                <input type="text" placeholder="Phone number" id="phone" th:field="*{phone}"/> <br><br>
 
-                Country:
-                <div class="alert alert-danger" th:if="${#fields.hasErrors('country')}">
-                    <p style="color:Red;" th:each="err : ${#fields.errors('country')}" th:text="${err}"></p>
+                <div class="col-md-4">
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('country')}">
+                        <p style="color:Red;" th:each="err : ${#fields.errors('country')}" th:text="${err}"></p>
+                    </div>
+                    <label for="country">Country:</label>
+                    <!--<input type="text" id="country" th:field="*{country}"/>-->
+
+                    <select name="country">
+                        <option value="LV">Latvija</option>
+                        <option value="LT">Lietuva</option>
+                        <option value="EE">Igaunija</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <br>
                 </div>
-                <select name="country">
-                    <option value="LV">Latvija</option>
-                    <option value="LT">Lietuva</option>
-                    <option value="EE">Igaunija</option>
-                    <option value="Other">Other</option>
-                </select>
-                <br><br>
+            </div>
+        </fieldset>
+<br><br>
+        <fieldset>
+            <legend>General information :</legend>
 
-
-
-
+            <div class="col-md-4">
                 <div class="alert alert-danger" th:if="${#fields.hasErrors('team')}">
                     <p style="color:Red;" th:each="err : ${#fields.errors('team')}" th:text="${err}"></p>
                 </div>
-                Team:
-                <input type="text" placeholder="Team name" id="team" th:field="*{team}"/> <br><br>
+                <label for="team">Team:</label>
+                <input type="text" placeholder="Team" id="team" th:field="*{team}"/>
+            </div>
 
+            <div class="col-md-4">
                 <div class="alert alert-danger" th:if="${#fields.hasErrors('city')}">
                     <p style="color:Red;" th:each="err : ${#fields.errors('city')}" th:text="${err}"></p>
                 </div>
-                City:
-                <input type="text" placeholder="City" id="city" th:field="*{city}"/> <br><br>
+                <label for="city">City:</label>
+                <input type="text" placeholder="City" id="city" th:field="*{city}"/>
+            </div>
 
+            <div class="col-md-4">
                 <div class="alert alert-danger" th:if="${#fields.hasErrors('bike')}">
-                    <p th:each="err : ${#fields.errors('bike')}" th:text="${err}"></p>
+                    <p style="color:Red;" th:each="err : ${#fields.errors('bike')}" th:text="${err}"></p>
                 </div>
-                Bike brand:
-                <input type="text" placeholder="Bike brand" id="bike" th:field="*{bike}"/> <br><br>
+                <label for="city">Bike brand:</label>
+                <input type="text" placeholder="bike" id="bike" th:field="*{bike}"/>
+            </div>
+            <br><br>
 
                 <input type="submit" value="Submit"/>
 
         </fieldset>
     </form>
 </div>
-
+<br><br>
 <p>Back to Home page <a href="/index">here</a></p>
 
 </body>

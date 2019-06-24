@@ -30,6 +30,9 @@ public class ParticipantsDataEntity {
 
     private String bike;
 
+    @NotBlank(message = "Add your phone number")
+    private String distance;
+
 
     public ParticipantsDataEntity() {
 
@@ -122,5 +125,13 @@ public class ParticipantsDataEntity {
 
     public void setBike(String bike) {
         this.bike = bike;
+    }
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
     }
 }
